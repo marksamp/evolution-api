@@ -1,0 +1,36 @@
+{
+  "name": "marksamp/evolution-api",
+  "description": "Cliente PHP para EvolutionAPI - WhatsApp Business API",
+  "type": "library",
+  "keywords": ["whatsapp", "api", "evolution-api", "chat", "messaging"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Desenvolvedor",
+      "email": "dev@example.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "guzzlehttp/guzzle": "^7.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "EvolutionAPI\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "EvolutionAPI\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  }
+}
