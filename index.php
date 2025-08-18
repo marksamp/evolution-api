@@ -37,7 +37,8 @@ try {
     // 3. Verificar se número existe
     echo "3. Verificando se número existe...<br>";
     //$number = '5511999999999'; // Substitua pelo número desejado
-    $number = '5585987435148'; // Substitua pelo número desejado
+    //$number = '5585987435148'; // Substitua pelo número desejado
+    $number = '558599445319'; // Substitua pelo número desejado
     $numberExists = $client->checkNumber($number);
     echo "Número {$number} existe: " . ($numberExists ? 'Sim' : 'Não') . "<br><br>";
 
@@ -48,7 +49,7 @@ try {
 
     // 4. Enviar mensagem de texto
     echo "4. Enviando mensagem de texto...<br>";
-    $textMessage = $client->sendQuickMessage($number, 'Olá! Esta é uma mensagem de teste da EvolutionAPI.');
+    $textMessage = $client->sendQuickMessage($number, 'Essa é uma mensagem automática. Se responder não será visualizado.');
     echo "Mensagem enviada: " . json_encode($textMessage) . "<br><br>";
 
     // 5. Enviar mídia
