@@ -1,4 +1,210 @@
+# EvolutionAPI PHP Client - .gitignore
+
+# ==============================================
+# Composer
+# ==============================================
 index.php
 index2.php
 .idea/
 vendor/
+composer.lock
+composer.phar
+
+# ==============================================
+# Ambiente e Configurações
+# ==============================================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ==============================================
+# Logs
+# ==============================================
+*.log
+/logs/
+/log/
+safe_sender.log
+whatsapp.log
+evolution.log
+
+# ==============================================
+# QR Codes
+# ==============================================
+qrcode*.png
+qrcode*.jpg
+*.qrcode
+/qrcodes/
+
+# ==============================================
+# Relatórios e Exports
+# ==============================================
+*.csv
+relatorio*.csv
+backup*.json
+campanha*.csv
+/exports/
+/backups/
+
+# ==============================================
+# Uploads e Mídia
+# ==============================================
+/uploads/
+/media/
+/temp/
+/tmp/
+
+# ==============================================
+# Cache
+# ==============================================
+/cache/
+/.cache/
+*.cache
+
+# ==============================================
+# IDE e Editores
+# ==============================================
+
+# PhpStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# NetBeans
+nbproject/
+nbbuild/
+dist/
+nbdist/
+
+# Eclipse
+.buildpath
+.project
+.settings/
+
+# ==============================================
+# Sistema Operacional
+# ==============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ==============================================
+# PHP
+# ==============================================
+*.php~
+*.php.bak
+
+# ==============================================
+# Testes
+# ==============================================
+/build/
+/coverage/
+.phpunit.result.cache
+phpunit.xml
+
+# ==============================================
+# Documentação
+# ==============================================
+/docs/build/
+/docs/_build/
+
+# ==============================================
+# Dados Sensíveis
+# ==============================================
+secrets.json
+credentials.json
+keys/
+*.key
+*.pem
+*.p12
+
+# ==============================================
+# Arquivos Temporários
+# ==============================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ==============================================
+# Node (se usar ferramentas JS)
+# ==============================================
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# ==============================================
+# Banco de Dados
+# ==============================================
+*.sqlite
+*.sqlite3
+*.db
+
+# ==============================================
+# Arquivos de Sessão
+# ==============================================
+/sessions/
+*.session
+
+# ==============================================
+# Arquivos de Instância
+# ==============================================
+/instances/
+instance_*.json
+
+# ==============================================
+# Histórico de Envios
+# ==============================================
+historico*.json
+envios_*.json
+
+# ==============================================
+# Arquivos de Desenvolvimento
+# ==============================================
+/dev/
+/test/
+/examples/local/
+playground.php
+teste.php
+debug.php
+
+# ==============================================
+# Whitelist (Arquivos para INCLUIR)
+# ==============================================
+# Use ! para forçar inclusão se necessário
+# !.gitkeep
+
+# ==============================================
+# Notas
+# ==============================================
+# Adicione arquivos específicos do seu projeto aqui
+# Mantenha este arquivo atualizado
+# NUNCA commite credenciais ou dados sensíveis

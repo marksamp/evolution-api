@@ -8,17 +8,26 @@ use EvolutionAPI\Services\InstanceService;
 use EvolutionAPI\Services\MessageService;
 use EvolutionAPI\Services\ContactService;
 use EvolutionAPI\Services\GroupService;
-use EvolutionAPI\Services\WebhookService;
+use EvolutionAPI\Services\PresenceService;
 
 class EvolutionAPIClient
 {
-    private Config $config;
-    private HttpClient $httpClient;
-    private InstanceService $instanceService;
-    private MessageService $messageService;
-    private ContactService $contactService;
-    private GroupService $groupService;
-    private WebhookService $webhookService;
+    /** @var Config */
+    private $config;
+    /** @var HttpClient */
+    private $httpClient;
+    /** @var InstanceService */
+    private $instanceService;
+    /** @var MessageService */
+    private $messageService;
+    /** @var ContactService */
+    private $contactService;
+    /** @var GroupService */
+    private $groupService;
+    /** @var WebhookService */
+    private $webhookService;
+    /** @var PresenceService */
+    private $presenceService;
 
     public function __construct(
         string $baseUrl,
@@ -34,6 +43,7 @@ class EvolutionAPIClient
         $this->contactService = new ContactService($this->httpClient, $this->config);
         $this->groupService = new GroupService($this->httpClient, $this->config);
         $this->webhookService = new WebhookService($this->httpClient, $this->config);
+        $this->presenceService = new PresenceService($this->httpClient, $this->config);
     }
 
     public function getConfig(): Config
@@ -71,8 +81,15 @@ class EvolutionAPIClient
         return $this->webhookService;
     }
 
+    public function presence(): PresenceService
+    {
+        return $this->presenceService;
+    }
+
     /**
      * Método de conveniência para criar e conectar instância
+     * @param array $settings
+     * @return array
      */
     public function quickStart(array $settings = []): array
     {
@@ -101,6 +118,7 @@ class EvolutionAPIClient
 
     /**
      * Método de conveniência para verificar se está conectado
+     * @return bool
      */
     public function isConnected(): bool
     {
@@ -114,6 +132,9 @@ class EvolutionAPIClient
 
     /**
      * Método de conveniência para enviar mensagem rápida
+     * @param string $number
+     * @param string $message
+     * @return array
      */
     public function sendQuickMessage(string $number, string $message): array
     {
@@ -122,6 +143,8 @@ class EvolutionAPIClient
 
     /**
      * Método de conveniência para verificar se número existe
+     * @param string $number
+     * @return bool
      */
     public function checkNumber(string $number): bool
     {
