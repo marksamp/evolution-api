@@ -9,6 +9,7 @@ use EvolutionAPI\Services\MessageService;
 use EvolutionAPI\Services\ContactService;
 use EvolutionAPI\Services\GroupService;
 use EvolutionAPI\Services\PresenceService;
+use EvolutionAPI\Services\WebhookService;
 
 class EvolutionAPIClient
 {
