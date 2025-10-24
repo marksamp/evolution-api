@@ -646,7 +646,7 @@ $safeSender = new SafeSender(
 $lotes = array_chunk($destinatarios, 50, true);
 
 foreach ($lotes as $indice => $lote) {
-    echo "Lote " . ($indice + 1) . "\n";
+    echo "Lote " . ($indice + 1) . "<br>";
     
     $stats = $safeSender->sendBatch($lote);
     $safeSender->mostrarStats();

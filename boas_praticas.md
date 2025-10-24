@@ -46,7 +46,7 @@ $delayMaximo = 8;
 foreach ($numbers as $index => $number) {
     // Verificar limite por hora
     if ($index > 0 && $index % $limitePorHora === 0) {
-        echo "Aguardando 1 hora (limite de {$limitePorHora} msgs/hora)\n";
+        echo "Aguardando 1 hora (limite de {$limitePorHora} msgs/hora)<br>";
         sleep(3600); // 1 hora
     }
     
@@ -59,7 +59,7 @@ foreach ($numbers as $index => $number) {
     // Enviar mensagem
     $client->message()->sendText($number, $message);
     
-    echo "Mensagem {$index} enviada. Aguardando {$delay}s...\n";
+    echo "Mensagem {$index} enviada. Aguardando {$delay}s...<br>";
     sleep($delay);
 }
 ```
@@ -153,21 +153,21 @@ function enviarSeguro($client, $number, $message)
 {
     // 1. Verificar se número existe no WhatsApp
     if (!$client->checkNumber($number)) {
-        echo "❌ Número não existe no WhatsApp: {$number}\n";
+        echo "❌ Número não existe no WhatsApp: {$number}<br>";
         return false;
     }
     
     // 2. Verificar se não está bloqueado
     // (manter lista de números que bloquearam você)
     if (estaNaListaBloqueio($number)) {
-        echo "❌ Número na lista de bloqueio: {$number}\n";
+        echo "❌ Número na lista de bloqueio: {$number}<br>";
         return false;
     }
     
     // 3. Verificar se já enviou mensagem recentemente
     $ultimoEnvio = getUltimoEnvio($number);
     if ($ultimoEnvio && (time() - $ultimoEnvio) < 3600) {
-        echo "⚠️ Aguardar antes de enviar novamente: {$number}\n";
+        echo "⚠️ Aguardar antes de enviar novamente: {$number}<br>";
         return false;
     }
     
@@ -181,7 +181,7 @@ function enviarSeguro($client, $number, $message)
         
         return true;
     } catch (Exception $e) {
-        echo "❌ Erro ao enviar: " . $e->getMessage() . "\n";
+        echo "❌ Erro ao enviar: " . $e->getMessage() . "<br>";
         return false;
     }
 }
@@ -277,7 +277,7 @@ if ($verificacao['pode']) {
     $client->message()->sendText($number, $mensagem);
     $controlador->registrarEnvio($number, $mensagem);
 } else {
-    echo "❌ " . $verificacao['motivo'] . "\n";
+    echo "❌ " . $verificacao['motivo'] . "<br>";
 }
 ```
 
@@ -346,7 +346,7 @@ function horarioSeguro()
 if (horarioSeguro()) {
     enviarMensagem($client, $number, $message);
 } else {
-    echo "Aguardando horário adequado para envio\n";
+    echo "Aguardando horário adequado para envio<br>";
     agendarEnvio($number, $message); // Agendar para próximo horário
 }
 ```
@@ -426,15 +426,15 @@ class MetricasSeguranca
         
         // SINAIS DE ALERTA
         if ($metricas['taxa_entrega'] < 90) {
-            echo "⚠️ Taxa de entrega baixa! Riscos de bloqueio.\n";
+            echo "⚠️ Taxa de entrega baixa! Riscos de bloqueio.<br>";
         }
         
         if ($metricas['taxa_bloqueio'] > 5) {
-            echo "🚨 ALERTA: Taxa de bloqueio alta! Pausar envios.\n";
+            echo "🚨 ALERTA: Taxa de bloqueio alta! Pausar envios.<br>";
         }
         
         if ($metricas['taxa_resposta'] < 10) {
-            echo "⚠️ Baixa taxa de resposta. Melhorar abordagem.\n";
+            echo "⚠️ Baixa taxa de resposta. Melhorar abordagem.<br>";
         }
         
         return $metricas;

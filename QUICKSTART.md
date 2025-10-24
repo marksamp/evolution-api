@@ -58,13 +58,13 @@ $client = new EvolutionAPIClient(
 $client->quickStart();
 
 // Aguardar conexão
-echo "Aguardando conexão...\n";
+echo "Aguardando conexão...<br>";
 while (!$client->isConnected()) {
     sleep(2);
     echo ".";
 }
 
-echo "\n✅ Conectado!\n";
+echo "<br>✅ Conectado!<br>";
 
 // Enviar mensagem de teste
 $result = $client->sendQuickMessage(
@@ -73,9 +73,9 @@ $result = $client->sendQuickMessage(
 );
 
 if ($result) {
-    echo "✅ Mensagem enviada com sucesso!\n";
+    echo "✅ Mensagem enviada com sucesso!<br>";
 } else {
-    echo "❌ Falha ao enviar mensagem\n";
+    echo "❌ Falha ao enviar mensagem<br>";
 }
 ```
 
@@ -276,12 +276,12 @@ print_r(\$c->instance()->listAll());"
 ```php
 // Verificar conexão primeiro
 if (!$client->isConnected()) {
-    echo "Não conectado! Escaneie QR Code.\n";
+    echo "Não conectado! Escaneie QR Code.<br>";
 }
 
 // Validar número
 if (!$client->checkNumber('5511999999999')) {
-    echo "Número inválido!\n";
+    echo "Número inválido!<br>";
 }
 ```
 
@@ -400,9 +400,9 @@ try {
     // Enviar em lote com proteção
     $stats = $safeSender->sendBatch($destinatarios, function($number, $result, $atual, $total) {
         if ($result) {
-            echo "✅ [{$atual}/{$total}] Enviado: {$number}\n";
+            echo "✅ [{$atual}/{$total}] Enviado: {$number}<br>";
         } else {
-            echo "❌ [{$atual}/{$total}] Falhou: {$number}\n";
+            echo "❌ [{$atual}/{$total}] Falhou: {$number}<br>";
         }
     });
     
@@ -412,19 +412,19 @@ try {
     // Exportar relatório
     $arquivo = 'relatorio_' . date('Y-m-d_H-i-s') . '.csv';
     $safeSender->exportarHistorico($arquivo);
-    echo "📊 Relatório exportado: {$arquivo}\n";
+    echo "📊 Relatório exportado: {$arquivo}<br>";
     
     // Resultado final
-    echo "\n🎉 Processo concluído!\n";
-    echo "✅ Enviadas: {$stats['enviadas']}\n";
-    echo "❌ Falhas: {$stats['falhas']}\n";
-    echo "📈 Taxa: {$stats['taxa_sucesso']}\n";
+    echo "<br>🎉 Processo concluído!<br>";
+    echo "✅ Enviadas: {$stats['enviadas']}<br>";
+    echo "❌ Falhas: {$stats['falhas']}<br>";
+    echo "📈 Taxa: {$stats['taxa_sucesso']}<br>";
     
 } catch (EvolutionAPIException $e) {
-    echo "❌ Erro da API: {$e->getMessage()}\n";
+    echo "❌ Erro da API: {$e->getMessage()}<br>";
     exit(1);
 } catch (Exception $e) {
-    echo "❌ Erro: {$e->getMessage()}\n";
+    echo "❌ Erro: {$e->getMessage()}<br>";
     exit(1);
 }
 ```

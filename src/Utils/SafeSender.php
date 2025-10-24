@@ -507,19 +507,19 @@ class SafeSender
     {
         $stats = $this->getStats();
 
-        echo "\n";
-        echo "╔════════════════════════════════════════╗\n";
-        echo "║     ESTATÍSTICAS DE ENVIO SEGURO      ║\n";
-        echo "╠════════════════════════════════════════╣\n";
-        echo sprintf("║ ✅ Enviadas:       %18d ║\n", $stats['enviadas']);
-        echo sprintf("║ ❌ Falhas:         %18d ║\n", $stats['falhas']);
-        echo sprintf("║ 🚫 Bloqueios:      %18d ║\n", $stats['bloqueios']);
-        echo sprintf("║ ⚠️  Falhas Consec: %18d ║\n", $stats['falhas_consecutivas']);
-        echo sprintf("║ 📊 Taxa Sucesso:   %18s ║\n", $stats['taxa_sucesso']);
-        echo sprintf("║ ⏱️  Tempo Total:    %17ds ║\n", $stats['tempo_total']);
-        echo sprintf("║ 📈 Msgs/Minuto:    %18s ║\n", $stats['msgs_por_minuto']);
-        echo "╚════════════════════════════════════════╝\n";
-        echo "\n";
+        echo "<br>";
+        echo "╔════════════════════════════════════════╗<br>";
+        echo "║     ESTATÍSTICAS DE ENVIO SEGURO       ║<br>";
+        echo "╠════════════════════════════════════════╣<br>";
+        echo sprintf("║ ✅ Enviadas:       %18d ║<br>", $stats['enviadas']);
+        echo sprintf("║ ❌ Falhas:         %18d ║<br>", $stats['falhas']);
+        echo sprintf("║ 🚫 Bloqueios:      %18d ║<br>", $stats['bloqueios']);
+        echo sprintf("║ ⚠️  Falhas Consec: %18d ║<br>", $stats['falhas_consecutivas']);
+        echo sprintf("║ 📊 Taxa Sucesso:   %18s ║<br>", $stats['taxa_sucesso']);
+        echo sprintf("║ ⏱️ Tempo Total:    %17ds ║<br>", $stats['tempo_total']);
+        echo sprintf("║ 📈 Msgs/Minuto:    %18s ║<br>", $stats['msgs_por_minuto']);
+        echo "╚════════════════════════════════════════╝<br>";
+        echo "<br>";
     }
 
     /**
@@ -543,11 +543,11 @@ class SafeSender
      */
     public function exportarHistorico(string $arquivo): bool
     {
-        $conteudo = "Data,Numero,Mensagem,Sucesso,Erro\n";
+        $conteudo = "Data,Numero,Mensagem,Sucesso,Erro<br>";
 
         foreach ($this->historico as $registro) {
             $conteudo .= sprintf(
-                "%s,%s,\"%s\",%s,\"%s\"\n",
+                "%s,%s,\"%s\",%s,\"%s\"<br>",
                 $registro['data'],
                 $registro['numero'],
                 str_replace('"', '""', $registro['mensagem']),
@@ -610,10 +610,10 @@ class SafeSender
     private function log(string $message): void
     {
         $timestamp = date('Y-m-d H:i:s');
-        echo "[{$timestamp}] {$message}\n";
+        echo "[{$timestamp}] {$message}<br>";
 
         // Opcional: salvar em arquivo
-        // file_put_contents('safe_sender.log', "[{$timestamp}] {$message}\n", FILE_APPEND);
+        // file_put_contents('safe_sender.log', "[{$timestamp}] {$message}<br>", FILE_APPEND);
     }
 
     /**
